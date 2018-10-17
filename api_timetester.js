@@ -12,38 +12,38 @@ async function sendReq (id, path) {
 }
 
 function sendSyncReqs (reqsToSend) {
-	let promises = []
+	let promises = [];
 	for (let r=1; r<=reqsToSend; r++) {
 		console.log('sending sync request ' + r);
 		promises.push(sendReq(r, 'work_sync/'));
 	}
-	return Promise.all(promises)
+	return Promise.all(promises);
 }
 
 function sendAsyncReqs (reqsToSend) {
-	let promises = []
+	let promises = [];
 	for (let r=1; r<=reqsToSend; r++) {
 		console.log('sending async request ' + r);
 		promises.push(sendReq(r, 'work/'));
 	}
-	return Promise.all(promises)
+	return Promise.all(promises);
 }
 
 async function sendSyncRequestThenAsyncRequests(reqsToSend) {
-	console.log('send sync requests:')
+	console.log('send sync requests:');
 	let start = new Date();
-	await sendSyncReqs(reqsToSend)
+	await sendSyncReqs(reqsToSend);
 	let end = new Date();
 	durationSecs = (end - start) / 1000;
-	console.log('total node secs: ' + durationSecs)
-	console.log(' ')
+	console.log('total node secs: ' + durationSecs);
+	console.log(' ');
 
 	start = new Date();
-	console.log('send async requests:')
-	await sendAsyncReqs(reqsToSend)
+	console.log('send async requests:');
+	await sendAsyncReqs(reqsToSend);
 	end = new Date();
 	durationSecs = (end - start) / 1000;
-	console.log('total node secs: ' + durationSecs)
+	console.log('total node secs: ' + durationSecs);
 }
 
 
@@ -51,4 +51,4 @@ async function sendSyncRequestThenAsyncRequests(reqsToSend) {
 // in order to see a difference in response times in it's sync and async 
 // endpoints
 
-sendSyncRequestThenAsyncRequests(9)
+sendSyncRequestThenAsyncRequests(4);
