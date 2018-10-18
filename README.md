@@ -21,3 +21,27 @@ If the number of requests to the `/work` endpoint is too large >(10 or 20) then 
     node ./api_timetester.js
 
 # Output / Results
+
+Results vary depending on the machine / cpu being used. But it can be seen that total processing time for four async requests is faster than four synchronous requests
+
+	send sync requests:
+	sending sync request 1
+	sending sync request 2
+	sending sync request 3
+	sending sync request 4
+	2 node: 2.963 python: 2.925754
+	3 node: 3.013 python: 2.995433
+	4 node: 3.008 python: 2.905545
+	1 node: 3.06 python: 3.039977
+	total node secs: 3.062
+ 
+	send async requests:
+	sending async request 1
+	sending async request 2
+	sending async request 3
+	sending async request 4
+	3 node: 0.824 python: 0.817213
+	4 node: 0.826 python: 0.813274
+	1 node: 0.834 python: 0.830302
+	2 node: 0.862 python: 0.856617
+	total node secs: 0.862

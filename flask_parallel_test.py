@@ -1,15 +1,8 @@
-import os
-import sys
-
 from flask import Flask, request, Response, json
 from datetime import datetime
 import multiprocessing
 
-curDir = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(curDir)
-staticPath = os.path.join(curDir, './www')
-
-app = Flask(__name__, static_folder=staticPath, static_url_path='')
+app = Flask(__name__)
 
 # flask config
 app.config['PROPAGATE_EXCEPTIONS'] = True
